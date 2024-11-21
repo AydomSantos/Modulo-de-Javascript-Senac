@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      button {
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        border-radius: 10px;
+      }
+
+      p {
+        font-size: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Clicando em Um Botão</h1>
+    </header>
+    <main>
+      <button class="btn__um">Botão 1</button>
+      <button class="btn__dois">Botão 2</button>
+      <button class="btn__tres">Botão 3</button>
+      <button class="btn__quatro">Botão 4</button>
+
+      <p class="text"></p>
+    </main>
+
+    <script>
+      const btnUm = document.querySelector(".btn__um");
+      const btnDois = document.querySelector(".btn__dois");
+      const btnTres = document.querySelector(".btn__tres");
+      const btnQuarto = document.querySelector(".btn__quatro");
+
+      btnUm.addEventListener("click", function () {
+        document.querySelector(".text").innerHTML = `Voçê Clicou no botão um`;
+      });
+
+      btnDois.addEventListener("click", function () {
+        document.querySelector(".text").innerHTML = `Voçê Clicou no botão dois`;
+      });
+
+      btnTres.addEventListener("click", function () {
+        document.querySelector(".text").innerHTML = `Voçê Clicou no botão tres`;
+      });
+
+      btnQuarto.addEventListener("click", function () {
+        document.querySelector(
+          ".text"
+        ).innerHTML = `Voçê Clicou no botão quatro`;
+      });
+    </script>
+  </body>
+</html>

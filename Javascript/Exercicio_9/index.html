@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numero Maior e Numero Menor</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+      body {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Roboto", sans-serif;
+      }
+
+      .container {
+        display: grid;
+        border: #000 solid 1px;
+        padding: 2rem;
+      }
+
+      .container .container__titulo {
+        font-size: 1.5rem;
+      }
+
+      .container input {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+
+      .btn {
+        padding: 1rem 2rem;
+        background: #000;
+        color: aliceblue;
+      }
+
+      p {
+        margin-top: 2rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="container__titulo">Numero Maior e Numero Menor</h1>
+      <input
+        type="number"
+        name="entrada_um"
+        id="entrada_um"
+        class="entrada_um"
+      />
+      <input
+        type="number"
+        name="entrada_dois"
+        id="entrada_dois"
+        class="entrada_dois"
+      />
+      <button class="btn">Visualizar o Resultado</button>
+      <h2 class="saida"></h2>
+
+      <div class="relogio" id="relogio"></div>
+    </div>
+
+    <script>
+      const entradaUm = document.querySelector(".entrada_um");
+      const entradaDois = document.querySelector(".entrada_dois");
+      const btn = document.querySelector(".btn");
+      const saidaDados = document.querySelector(".saida");
+
+      btn.addEventListener("click", () => {
+        if (entradaUm.value > entradaDois.value) {
+          saidaDados.innerHTML = `<p>o numero ${entradaUm.value} e maior</p>`;
+        } else if (entradaDois.value > entradaUm.value) {
+          saidaDados.innerHTML = `<p>o numero ${entradaDois.value} e maior</p>`;
+        } else if (entradaDois.value == entradaUm.value) {
+          saidaDados.innerHTML = `<p>o numero ${entradaUm.value} e o numero ${entradaDois.value} são iguais</p>`;
+        }
+
+        // console.log(entradaUm.value);
+        // console.log(entradaDois.value);
+      });
+
+      function atualizarRelogio() {
+        const relogio = document.getElementById("relogio");
+
+        const agora = new Date();
+        const dataFormatada = agora.toLocaleDateString("pt-BR", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        });
+
+        const horaFormatada = agora.toLocaleTimeString("pt-BR", {
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        });
+
+        relogio.innerHTML = `<mark> <p>${dataFormatada} - ${horaFormatada}</p> </mark>`;
+      }
+
+      // Atualiza o relógio a cada segundo
+      setInterval(atualizarRelogio, 1000);
+
+      // Chama a função inicialmente para evitar atraso de 1 segundo na primeira exibição
+      atualizarRelogio();
+    </script>
+  </body>
+</html>

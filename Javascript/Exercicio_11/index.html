@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+      }
+      input{
+        margin: 1rem 0;
+        padding: 0.8rem;
+        font-size: 1rem;
+      }
+
+      button{
+        padding: 1rem;
+        background: #000;
+        color: aliceblue;
+      }
+    </style>
+    <title>Desafio das cores</title>
+  </head>
+  <body>
+    <input type="text" class="saida" />
+    <button class="btn">Clique para gerar uma cor</button>
+
+    <script>
+      // Função para gerar uma cor aleatória em formato hexadecimal
+      function gerarCorAleatoria() {
+        const letras = "0123456789ABCDEF";
+        let cor = "#";
+        for (let i = 0; i < 6; i++) {
+          cor += letras[Math.floor(Math.random() * 16)];
+        }
+        return cor;
+      }
+
+      // Evento de clique no botão
+      document.querySelector(".btn").addEventListener("click", () => {
+        const cor = gerarCorAleatoria();
+        document.body.style.backgroundColor = cor;
+        document.querySelector(".saida").value = cor;
+      });
+    </script>
+  </body>
+</html>
